@@ -9,12 +9,12 @@ All sorts of helpers
 
         - Make all files executable using
 
-          ```shell
+          ```Shell
           chmod +x <filename>
           ```
         - Run the initial setup script to check if valid folders are present
 
-          ```shell
+          ```Shell
           ./initialsetup
           ```
         - Move _addshortcut_ and _removeshortcut_ scripts to **/usr/local/bin** so as to be able to access command from anywhere
@@ -22,35 +22,35 @@ All sorts of helpers
     - Usage :
         - For adding links to **Agile Boards ->** (created during initial setup)
 
-        ```shell
+        ```Shell
         addshortcut -n <name of script> -a <http/https link>
         ```
 
         - For adding any links to **Start ->** (also created during initial setup)
 
-        ```shell
+        ```Shell
         addshortcut -n <name of script> -l <http/https link>
         ```
 
         - For removing links from **Agile Boards ->**
 
-        ```shell
+        ```Shell
         removeshortcut -n <name of script> -a
         ```
 
         - For removing links from **Start ->**
 
-        ```shell
+        ```Shell
         removeshortcut -n <name of script> -l
         ```
 
         - For help
 
-        ```shell
+        ```Shell
         addshortcut -h
         ```
         and
 
-        ```shell
+        ```Shell
         removeshortcut -h
         ```
