@@ -1,0 +1,67 @@
+#! /bin/bash
+
+##### Constants
+
+TITLE="System Information for $HOSTNAME"
+RIGHT_NOW=$(date +"%x %r %Z")
+TIME_STAMP="Updated on $RIGHT_NOW by $USER"
+#### check options
+
+while getopts "hlan:" opt; do
+  case $opt in
+    h) echo -e "Usage :\n\e[44mremoveshortcut -n <nameofshortcut> -a\e[0m  ==> to remove links from Agile Boards\n\e[45mremoveshortcut -n <nameofshortcut> -l\e[0m  ==> to remove links from Start"  
+	exit 0
+    ;;
+    a)  agile=~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>
+	location=~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>
+    ;;
+    l)  link=~/.local/share/nautilus/scripts/Start\ \-\>
+	location=~/.local/share/nautilus/scripts/Start\ \-\>
+    ;;
+    n) if [ -z "$OPTARG" ];
+        then
+                echo -e "\e[31m\e[5mError Encountered\e[0m : -n | name  parameter cannot be empty"
+                exit 1
+        else
+                name="$OPTARG"
+        fi
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+if [ -z "$name" ]; then
+        echo -e "\e[31m\e[5mError Encountered\e[0m : -n | name  parameter is required to create shortcut"
+        exit 1
+fi
+
+if [ -z "$agile" && -z "$link" ]; then
+        echo -e "\e[31m\e[5mError Encountered\e[0m : Script type not defined"
+	exit 1
+else
+echo $location
+	if [ -e "$location/$name"  ]; then
+		rm "$location/$name"
+		if [ -e "$location/$name" ]; then
+			echo -e "\e[31m\e[5mError Encountered\e[0m : Unable to delete $name from $location"
+			echo -e "\e[95mInfo\e[0m : Trying to delete \e[33m$name\e[0m using force..."
+			rm -f "$location/$name"
+			if [ -e "$location/$name" ]; then
+				echo -e "\e[31m\e[5mError Encountered\e[0m : Unable to delete $name from $location forcibly !"
+				exit 1
+			else
+				echo -e "\e[32mSuccess\e[0m : 2 : \e[95m$name\e[0m deleted !"
+				exit 0
+			fi
+			
+		else
+			echo -e "\e[32mSuccess\e[0m : 1 : \e[95m$name\e[0m deleted !"
+			exit 0			
+		fi 
+	else
+		echo -e "\e[95mInfo\e[0m : No file \e[33m$name\e[0m present in location \e[33m$location\e[0m"
+		echo -e "\e[97mSystem\e[0m : Exiting..."
+		exit 1
+	fi
+fi

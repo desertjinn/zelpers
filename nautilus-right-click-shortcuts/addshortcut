@@ -1,0 +1,137 @@
+#! /bin/bash
+
+##### Constants
+
+TITLE="System Information for $HOSTNAME"
+RIGHT_NOW=$(date +"%x %r %Z")
+TIME_STAMP="Updated on $RIGHT_NOW by $USER"
+PROTOCOL="http"
+SECURE_PROTOCOL="https"
+
+#### check options
+
+while getopts "hl:a:n:" opt; do
+  case $opt in
+    h) echo -e "Usage :\n\e[44maddshortcut -n <nameofshortcut> -a <linkaddress>\e[0m    ==> to add links to Agile Boards\n\e[45maddshortcut -n <nameofshortcut> -l <linkaddress>\e[0m    ==> to add links to Start"	
+	exit 0
+    ;;
+    a) if [ -z "$OPTARG" ];
+	then
+		echo -e "\e[31m\e[5mError Encountered\e[0m : -a | agile  parameter cannot be empty"
+		exit 1
+	else
+		agile="$OPTARG"
+	fi
+    ;;
+    l) if [ -z "$OPTARG" ];
+        then
+                echo -e "\e[31m\e[5mError Encountered\e[0m : -l | link  parameter cannot be empty"
+                exit 1
+        else
+                link="$OPTARG"
+        fi
+    ;;
+    n) if [ -z "$OPTARG" ];
+	then
+		echo -e "\e[31m\e[5mError Encountered\e[0m : -n | name  parameter cannot be empty"
+	        exit 1
+	else
+		name="$OPTARG"
+	fi
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+
+if [ -z "$name" ]; then
+	echo -e "\e[31m\e[5mError Encountered\e[0m : -n | name  parameter is required to create shortcut"
+	exit 1
+fi
+
+
+##### MAIN
+if [ -z "$agile" ]; then
+	echo -e "\e[95mInfo\e[0m : Agile link not defined"
+else
+	if test "${agile#*$PROTOCOL}" != "$agile" || test "${agile#*$SECURE_PROTOCOL}" != "$agile" ; then
+        		# $substring is in $string
+			echo -e "\e[32mSuccess\e[0m : Valid URL supplied with \e[95m$PROTOCOL/$SECURE_PROTOCOL\e[0m"
+			text="#! /bin/bash\n\ngoogle-chrome-stable $agile &"
+	
+			echo $text >> ~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>/$name
+			if [ -e ~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>/$name ] ; then
+				if [ -x ~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>/$name ] ; then
+					echo -e "\e[32mSuccess\e[0m : Executable shortcut \e[94m$name\e[0m created at location \e[94m~/.local/share/nautilus/scripts/Agile Boards ->/\e[0m"
+					echo -e "\e[1m\e[4mHOST\e[0m : $TITLE"
+					echo -e "\e[1m\e[4mEVENT\e[0m : $TIME_STAMP"
+					echo -e "\e[95mInfo\e[0m : Access shorcut by right-clicking on nautilus folders \e[44mScripts => Agile Boards -> => $name\e[0m"
+
+				else
+					sudo -u rohitsuseelan chmod u+x ~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>/$name
+					if [ -x ~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>/$name ]; then
+						echo -e "\e[32mSuccess\e[0m : File $name is executable now."
+
+  	       					echo -e "\e[32mSuccess\e[0m : Executable shortcut \e[94m$name\e[0m created at location \e[94m~/.local/share/nautilus/scripts/Agile Boards ->/\e[0m"
+           					echo -e "\e[1m\e[4mHOST\e[0m : $TITLE"
+					        echo -e "\e[1m\e[4mEVENT\e[0m : $TIME_STAMP"
+						echo -e "\e[95mInfo\e[0m : Access shorcut by right-clicking on nautilus folders \e[44mScripts => Agile Boards -> => $name\e[0m"
+         				 else
+          					echo -e "\e[5m\e[31mError Encountered\e[0m : 2 : File \e[94m$name\e[0m in location \e[94m~/.local/share/nautilus/scripts/Agile Boards ->/\e[0m. Unable to make file executable. Check script permissions and try again or manually set permissions."
+					fi
+
+				fi
+			else
+				echo -e "\e[5m\e[31mError Encountered\e[0m : 1 : File \e[94m$name\e[0m  does not exist in location \e[94m~/.local/share/nautilus/scripts/Agile Boards ->/\e[0m. Write failure may have occured ! Check script permissions and try again."
+				exit 1
+			fi
+
+ 	else
+      		echo -e "\e[5m\e[31mError Encountered\e[0m : 3 : $agile is not valid address. Enter a valid URL to create shortcut"    # $substring is not in $string
+		exit 1
+	fi
+fi
+
+if [ -z "$link" ]; then
+        echo -e "\e[95mInfo\e[0m : Website link not defined"
+else
+        if test "${link#*$PROTOCOL}" != "$link" || test "${link#*$SECURE_PROTOCOL}" != "$link" ; then
+                        # $substring is in $string
+                        echo -e "\e[32mSuccess\e[0m : Valid URL supplied with \e[95m$PROTOCOL/$SECURE_PROTOCOL\e[0m"
+                        text="#! /bin/bash\n\ngoogle-chrome-stable $link &"
+
+                        echo $text >> ~/.local/share/nautilus/scripts/Start\ \-\>/$name
+                        if [ -e ~/.local/share/nautilus/scripts/Start\ \-\>/$name ] ; then
+                                if [ -x ~/.local/share/nautilus/scripts/Start\ \-\>/$name ] ; then
+                                        echo -e "\e[32mSuccess\e[0m : Executable shortcut \e[94m$name\e[0m created at location \e[94m~/.local/share/nautilus/scripts/Start ->/\e[0m"
+                                        echo -e "\e[1m\e[4mHOST\e[0m : $TITLE"
+                                        echo -e "\e[1m\e[4mEVENT\e[0m : $TIME_STAMP"
+					echo -e "\e[95mInfo\e[0m : Access shorcut by right-clicking on nautilus folders \e[44mScripts => Start -> => $name\e[0m"
+
+                                else
+                                        sudo -u rohitsuseelan chmod u+x ~/.local/share/nautilus/scripts/Start\ \-\>/$name
+                                        if [ -x ~/.local/share/nautilus/scripts/Start\ \-\>/$name ]; then
+                                                echo -e "\e[32mSuccess\e[0m : File $name is executable now."
+
+                                                echo -e "\e[32mSuccess\e[0m : Executable shortcut \e[94m$name\e[0m created at location \e[94m~/.local/share/nautilus/scripts/Start ->/\e[0m"
+                                                echo -e "\e[1m\e[4mHOST\e[0m : $TITLE"
+                                                echo -e "\e[1m\e[4mEVENT\e[0m : $TIME_STAMP"
+						echo -e "\e[95mInfo\e[0m : Access shorcut by right-clicking on nautilus folders \e[44mScripts => Start -> => $name\e[0m"
+
+                                         else
+                                                echo -e "\e[5m\e[31mError Encountered\e[0m : 2 : File \e[94m$name\e[0m in location \e[94m~/.local/share/nautilus/scripts/Start ->/\e[0m. Unable to make file executable. Check script permissions and try again or manually set permissions."
+                                        fi
+
+                                fi
+                        else
+                                echo -e "\e[5m\e[31mError Encountered\e[0m : 1 : File \e[94m$name\e[0m  does not exist in location \e[94m~/.local/share/nautilus/scripts/Start ->/\e[0m. Write failure may have occured ! Check script permissions and try again."
+                                exit 1
+                        fi
+
+        else
+                echo -e "\e[5m\e[31mError Encountered\e[0m : 3 : $agile is not valid address. Enter a valid URL to create shortcut"    # $substring is not in $string
+                exit 1
+        fi
+fi
+
