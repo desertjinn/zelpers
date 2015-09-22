@@ -7,44 +7,49 @@ All sorts of helpers
 
     - Setup
 
-        - Make all files executable using
+        1. Make all files executable using
 
-          ```Shell
+          ```
+          
           chmod +x <filename>
+          
           ```
-        - Run the initial setup script to check if valid folders are present
+        2. Run the initial setup script to check if valid folders are present
 
-          ```Shell
-          ./initialsetup
           ```
-        - Move _addshortcut_ and _removeshortcut_ scripts to **/usr/local/bin** so as to be able to access command from anywhere
+          
+          ./initialsetup
+          
+          ```
+        3. Move _addshortcut_ and _removeshortcut_ scripts to **/usr/local/bin** so as to be able to access command from anywhere
 
     - Usage :
-        - For adding links to **Agile Boards ->** (created during initial setup)
+        
+        1. For adding links to **Agile Boards ->** (created during initial setup)
 
         ```Shell
         addshortcut -n <name of script> -a <http/https link>
         ```
 
-        - For adding any links to **Start ->** (also created during initial setup)
+        2. For adding any links to **Start ->** (also created during initial setup)
 
         ```Shell
         addshortcut -n <name of script> -l <http/https link>
         ```
 
-        - For removing links from **Agile Boards ->**
+        3. For removing links from **Agile Boards ->**
 
         ```Shell
         removeshortcut -n <name of script> -a
         ```
 
-        - For removing links from **Start ->**
+        4. For removing links from **Start ->**
 
         ```Shell
         removeshortcut -n <name of script> -l
         ```
 
-        - For help
+        5. For help
 
         ```Shell
         addshortcut -h
