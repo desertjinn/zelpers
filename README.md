@@ -1,4 +1,4 @@
-# Zappers
+# Zelpers
 All sorts of helpers
 
 ## Nautilus Shortcuts
