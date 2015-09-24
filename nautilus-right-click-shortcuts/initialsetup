@@ -73,6 +73,20 @@ else
 
 fi
 
+#### Google Cloud -> folder
+if [ ! -d "$HOME/.local/share/nautilus/scripts/Google Cloud ->" ] ; then
+        echo -e "\e[31mWarning\e[0m : No \e[95mGoogle Cloud ->\e[0m directory in \e[93m$HOME/.local/share/nautilus/scripts\e[0m"
+        echo -e "\e[95mInfo\e[0m : Creating folder \e[44mGoogle Cloud ->\e[0m"              
+        mkdir $HOME/.local/share/nautilus/scripts/Google\ Cloud\ \-\>
+        if [ ! -d "$HOME/.local/share/nautilus/scripts/Google Cloud ->" ] ; then
+                echo -e "\e[31mError Encountered\e[0m : Unable to create \e[95mGoogle Cloud ->\e[0m directory in \e[93m$HOME/.local/share/nautilus/scripts\e[0m"
+                exit 1
+        fi
+else
+        echo -e "\e[32mSuccess\e[0m : \e[44mGoogle Cloud ->\e[0m folder exists in \e[93m~/.local/share/nautilus/scripts\e[0m" 
+
+fi
+
 
 echo -e "\n\n\e[95mInfo\e[0m : Any folders or scripts created in \e[44m~/.local/share/nautilus/scripts\e[0m will be available via right-click options in nautilus"
 echo -e "\tUse \e[35maddshortcut\e[0m and \e[35mremoveshorcut\e[0m to add and remove links from Scripts\n\n"  
