@@ -77,7 +77,7 @@ else
 					echo -e "\e[95mInfo\e[0m : Access shorcut by right-clicking on nautilus folders \e[44mScripts => Agile Boards -> => $name\e[0m"
 
 				else
-					sudo -u rohitsuseelan chmod u+x ~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>/$name
+					sudo -u $USER chmod u+x ~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>/$name
 					if [ -x ~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>/$name ]; then
 						echo -e "\e[32mSuccess\e[0m : File $name is executable now."
 
@@ -118,7 +118,7 @@ else
 					echo -e "\e[95mInfo\e[0m : Access shorcut by right-clicking on nautilus folders \e[44mScripts => Start -> => $name\e[0m"
 
                                 else
-                                        sudo -u rohitsuseelan chmod u+x ~/.local/share/nautilus/scripts/Start\ \-\>/$name
+                                        sudo -u $USER chmod u+x ~/.local/share/nautilus/scripts/Start\ \-\>/$name
                                         if [ -x ~/.local/share/nautilus/scripts/Start\ \-\>/$name ]; then
                                                 echo -e "\e[32mSuccess\e[0m : File $name is executable now."
 
@@ -161,7 +161,7 @@ else
                                         echo -e "\e[95mInfo\e[0m : Access shorcut by right-clicking on nautilus folders \e[44mScripts => Google Cloud -> => $name\e[0m"
 
                                 else
-                                        sudo -u rohitsuseelan chmod u+x ~/.local/share/nautilus/scripts/Google\ Cloud\ \-\>/$name
+                                        sudo -u $USER chmod u+x ~/.local/share/nautilus/scripts/Google\ Cloud\ \-\>/$name
                                         if [ -x ~/.local/share/nautilus/scripts/Google\ Cloud\ \-\>/$name ]; then
                                                 echo -e "\e[32mSuccess\e[0m : File $name is executable now."
 
