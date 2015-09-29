@@ -7,9 +7,9 @@ RIGHT_NOW=$(date +"%x %r %Z")
 TIME_STAMP="Updated on $RIGHT_NOW by $USER"
 #### check options
 
-while getopts "hlan:" opt; do
+while getopts "hlagn:" opt; do
   case $opt in
-    h) echo -e "Usage :\n\e[44mremoveshortcut -n <nameofshortcut> -a\e[0m  ==> to remove links from Agile Boards\n\e[45mremoveshortcut -n <nameofshortcut> -l\e[0m  ==> to remove links from Start"  
+     h) echo -e "Usage :\n\e[44mremoveshortcut -n <nameofshortcut> -a\e[0m  ==> to remove links from Agile Boards\n\e[45mremoveshortcut -n <nameofshortcut> -l\e[0m  ==> to remove links from Start"  
 	exit 0
     ;;
     a)  agile=~/.local/share/nautilus/scripts/Agile\ Boards\ \-\>
@@ -17,6 +17,9 @@ while getopts "hlan:" opt; do
     ;;
     l)  link=~/.local/share/nautilus/scripts/Start\ \-\>
 	location=~/.local/share/nautilus/scripts/Start\ \-\>
+    ;;
+    g)  link=~/.local/share/nautilus/scripts/Google\ Cloud\ \-\>
+        location=~/.local/share/nautilus/scripts/Google\ Cloud\ \-\>
     ;;
     n) if [ -z "$OPTARG" ];
         then
@@ -36,7 +39,7 @@ if [ -z "$name" ]; then
         exit 1
 fi
 
-if [ -z "$agile" && -z "$link" ]; then
+if [ -z "$agile" ] && [ -z "$link" ]; then
         echo -e "\e[31m\e[5mError Encountered\e[0m : Script type not defined"
 	exit 1
 else
@@ -56,7 +59,7 @@ echo $location
 			fi
 			
 		else
-			echo -e "\e[32mSuccess\e[0m : 1 : \e[95m$name\e[0m deleted !"
+			echo -e "\e[32mSuccess\e[0m : 1 : \e[95m$name\e[0m deleted from \e[95m$location\e[0m!"
 			exit 0			
 		fi 
 	else
