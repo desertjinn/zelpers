@@ -76,7 +76,7 @@ if [ -z "$target" ]; then
 else
         if test "${target#*$PROTOCOL}" != "$target" || test "${target#*$SECURE_PROTOCOL}" != "$target" ; then
 		echo -e "\e[32mSuccess\e[0m : Valid URL supplied with \e[95m$PROTOCOL/$SECURE_PROTOCOL\e[0m"
-		text="#! /bin/bash\n\ngoogle-chrome-stable $target &"
+		text="#! /bin/bash\n\nxdg-open $target &"
 		echo -e $text >> "$location/$name"
 		if [ -e "$location/$name" ] ; then
 			if [ -x "$location/$name" ] ; then
