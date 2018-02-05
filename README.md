@@ -1,11 +1,11 @@
-#Zelpers
+# Zelpers
 All sorts of helpers
 
-##Nautilus Shortcuts
-###(nautilus-right-click-shortcuts)
+## Nautilus Shortcuts
+### (nautilus-right-click-shortcuts)
 
-###Setup
-####_(The files created by script are place in ~/.local/share/nautilus/scripts)_
+### Setup
+#### _(The files created by script are place in ~/.local/share/nautilus/scripts)_
 * Make required files(*addshortcut*, *removeshortcut*, *initialsetup*) executable using
 ```Shell
 chmod +x <filename>
@@ -27,7 +27,7 @@ chmod +x <filename>
 addshortcut -n <name of script> -a <http/https link>
 ```
 
- For removing links from **Agile Boards ->**
+ For removing links to **Agile Boards ->**
 ```Shell
 removeshortcut -n <name of script> -a
 ```
@@ -45,7 +45,7 @@ removeshortcut -n <name of script> -l
 ```Shell
 addshortcut -n <name of script> -g <http/https link>
 ```
- For removing links from **Google Cloud ->**
+ For removing links to **Google Cloud ->**
 ```Shell
 removeshortcut -n <name of script> -g
 ```
