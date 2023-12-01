@@ -1,6 +1,10 @@
-use clap::{Args, CommandFactory, Parser};
+use std::borrow::BorrowMut;
+use std::fmt::Debug;
+
+use clap::Parser;
 
 mod action;
+mod logger;
 
 
 #[derive(Parser,Default,Debug)]
@@ -23,10 +27,13 @@ struct Cli {
 fn main() {
     let args = Cli::parse();
     if args.debug {
-        println!("WARNING: debug flag enabled")
+        println!("WARNING: debug flag enabled");
+        logger::set_debug_flag(Some(args.debug));
     }
 
-    /// Print help manually
+    logger::debug("HAHAHAHA");
+
+    // Print help manually
     // let mut cmd = Cli::command();
     // let _ = cmd.print_help();
 }
