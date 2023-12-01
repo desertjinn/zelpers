@@ -1,0 +1,11 @@
+/Users/rohit/IdeaProjects/zelpers/zelp/target/debug/deps/anstyle_parse-6a78c012fbf28d4f.rmeta: /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/lib.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/params.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/mod.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/definitions.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/table.rs
+
+/Users/rohit/IdeaProjects/zelpers/zelp/target/debug/deps/libanstyle_parse-6a78c012fbf28d4f.rlib: /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/lib.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/params.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/mod.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/definitions.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/table.rs
+
+/Users/rohit/IdeaProjects/zelpers/zelp/target/debug/deps/anstyle_parse-6a78c012fbf28d4f.d: /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/lib.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/params.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/mod.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/definitions.rs /Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/table.rs
+
+/Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/lib.rs:
+/Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/params.rs:
+/Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/mod.rs:
+/Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/definitions.rs:
+/Users/rohit/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.2/src/state/table.rs:
