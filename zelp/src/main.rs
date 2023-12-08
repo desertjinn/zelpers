@@ -2,10 +2,13 @@ use std::borrow::BorrowMut;
 use std::fmt::Debug;
 
 use clap::Parser;
+use traits::tty::Tty;
 
 mod action;
-mod logger;
-
+mod log;
+mod traits;
+mod enums;
+mod datastore;
 
 #[derive(Parser,Default,Debug)]
 #[clap(author="desertjinn", version="0.1.0", about="A zen helper script")]
@@ -21,17 +24,22 @@ struct Cli {
     #[clap(default_value("false"), short('d'), long("debug"), help("Enable the debug flag"))]
     debug: bool,
     #[clap(default_value("false"), short('h'), long("help"), help("Print help for Zelp"))]
-    help: bool
+    help: bool,
+    #[clap(default_value(""), short('l'), long("log"), help("Set the log level"))]
+    log: String,
+
 }
 
 fn main() {
+    let logger = log::Logger{ data_store: None };
     let args = Cli::parse();
-    if args.debug {
-        println!("WARNING: debug flag enabled");
-        logger::set_debug_flag(Some(args.debug));
+    println!("{:?}", args);
+
+    if args.log != "" {
+        logger.set_level(args.log);
     }
 
-    logger::debug("HAHAHAHA");
+    logger.print("HEY!")
 
     // Print help manually
     // let mut cmd = Cli::command();
